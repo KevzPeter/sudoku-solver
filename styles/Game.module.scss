@@ -24,8 +24,8 @@
   animation: rgb 3s linear infinite;
 }
 .square {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 2px solid #fff;
   box-sizing: border-box;
   font-size: 2rem;
@@ -36,6 +36,9 @@
   display: flex;
   text-align: center;
   margin-top: 2rem;
+}
+.timer {
+  margin-top: 1rem;
 }
 #solvebtn,
 #resetbtn {

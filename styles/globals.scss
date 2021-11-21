@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+.footer {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  color: white;
+  font-weight: 500;
+}
+@media screen and(max-width:768px) {
+  .footer {
+    text-align: center;
+    position: static;
+    margin-top: 5rem;
+  }
+}

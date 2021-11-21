@@ -12,8 +12,8 @@ const Game = () => {
   return (
     <div className={styles.game}>
       <h1>Sudoku Solver</h1>
-      <Board>{squares.map((row, ridx) => row.map((el, cidx) => <Square key={ridx * 9 + cidx} val={el} {...{ ridx, cidx, setSquares, squares, solved }} />))}</Board>
-      <Solve {...{ squares, setSquares, setSolved }} />
+      <Board {...{ solved }}>{squares.map((row, ridx) => row.map((el, cidx) => <Square key={ridx * 9 + cidx} val={el} {...{ ridx, cidx, setSquares, squares, solved }} />))}</Board>
+      <Solve {...{ squares, setSquares, setSolved, solved }} />
     </div>
   );
 };

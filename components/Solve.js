@@ -16,22 +16,23 @@ const Solve = (props) => {
 
   return (
     <div className={styles.solve}>
-      <div
+      <button
         id={styles.solvebtn}
+        disabled={props.solved}
         onClick={() => {
           handleClick("solve");
         }}
       >
         Sudo Solve 🤠
-      </div>
-      <div
+      </button>
+      <button
         id={styles.resetbtn}
         onClick={() => {
           handleClick("reset");
         }}
       >
         Reset Board 🔄
-      </div>
+      </button>
     </div>
   );
 };

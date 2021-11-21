@@ -7,9 +7,10 @@ const Solve = (props) => {
     if (choice === "solve") {
       let solvedSquares = solveSudoku(props.squares);
       props.setSquares(solvedSquares);
-      return;
+      props.setSolved(true);
     } else {
       props.setSquares(initSudoku);
+      props.setSolved(false);
     }
   };
 

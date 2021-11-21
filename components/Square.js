@@ -11,7 +11,7 @@ const Square = (props) => {
   return (
     <>
       {!props.solved ? (
-        <input className={styles.square} type="number" id="square-val" name="square-val" maxlength="1" min="1" max="9" onChange={(e) => handleChange(e)}></input>
+        <input className={styles.square} type="number" id="square-val" name="square-val" maxLength="1" min="1" max="9" onChange={(e) => handleChange(e)}></input>
       ) : (
         <div className={styles.square}>{props.val}</div>
       )}

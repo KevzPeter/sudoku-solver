@@ -1,3 +1,5 @@
+$orange: #f44336;
+$green: #8bc34a;
 .game {
   color: white;
   display: flex;
@@ -30,7 +32,13 @@
   box-sizing: border-box;
   font-size: 2rem;
   text-align: center;
-  background-color: #03a9f4;
+  background-color: #2196f3;
+  color: #fff;
+  margin: auto;
+  &.invalid {
+    border-color: $orange;
+    color: $orange;
+  }
 }
 .solve {
   display: flex;

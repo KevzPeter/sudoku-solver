@@ -28,7 +28,7 @@ const Solve = (props) => {
       <div className={styles.solve}>
         <button
           id={styles.solvebtn}
-          disabled={props.solved}
+          disabled={props.solved || props.invalid}
           onClick={() => {
             handleClick("solve");
           }}
@@ -37,6 +37,7 @@ const Solve = (props) => {
         </button>
         <button
           id={styles.resetbtn}
+          disabled={!props.solved}
           onClick={() => {
             handleClick("reset");
           }}

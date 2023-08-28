@@ -9,26 +9,32 @@ const Square = (props) => {
 
   const showInvalidInputToast = () => toast.error('Invalid input', { position: 'top-right' });
 
+  const handleInputValue = (flag, val) => {
+    let newSquares = props.squares;
+    let newUserInput = props.userInput;
+    setInvalid(flag);
+    props.setInvalid(flag);
+    newSquares[props.rowIdx][props.colIdx] = val;
+    newUserInput[props.rowIdx][props.colIdx] = val;
+    props.setSquares([...newSquares]);
+    props.setUserInput([...newUserInput]);
+  }
+
   const handleChange = (e) => {
     e.preventDefault();
-    if (!e.target.value?.length) {
-      setInvalid(false);
-      props.setInvalid(false);
-      return;
-    }
-    const val = sanitizeInput(e);
     let newSquares = props.squares;
     let row = props.rowIdx;
     let col = props.colIdx;
+    if (!e.target.value?.length) {
+      handleInputValue(false, "");
+      return;
+    }
+    const val = sanitizeInput(e);
     if (val === -1 || !isValid(newSquares, row, col, val)) {
       showInvalidInputToast();
-      setInvalid(true);
-      props.setInvalid(true);
+      handleInputValue(true, e.target.value);
     } else {
-      setInvalid(false);
-      props.setInvalid(false);
-      newSquares[props.rowIdx][props.colIdx] = val;
-      props.setSquares([...newSquares]);
+      handleInputValue(false, val);
     }
   };
 
@@ -38,6 +44,7 @@ const Square = (props) => {
         <input
           className={styles["square"] + " " + styles[invalid ? "invalid" : undefined]}
           type="text"
+          value={props.squares[props.rowIdx][props.colIdx]}
           id="square-val"
           name="square-val"
           maxLength="1"
@@ -45,7 +52,7 @@ const Square = (props) => {
           onChange={(e) => handleChange(e)}
         ></input>
       ) : (
-        <div className={styles.square}>{props.val}</div>
+        <div className={styles["square"] + " " + styles[props.userInput[props.rowIdx][props.colIdx] ? "highlight" : null]}>{props.val}</div>
       )}
     </>
   );

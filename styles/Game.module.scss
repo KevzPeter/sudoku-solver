@@ -32,7 +32,7 @@ $green: #8bc34a;
   box-sizing: border-box;
   font-size: 2rem;
   text-align: center;
-  background-color: #2196f3;
+  background-color: #0474BA;
   color: #fff;
   margin: auto;
   &.invalid {
@@ -69,6 +69,9 @@ $green: #8bc34a;
 #resetbtn {
   background-color: #212121;
   color: white;
+}
+.highlight{
+  background-color: $green;
 }
 @keyframes rgb {
   0% {

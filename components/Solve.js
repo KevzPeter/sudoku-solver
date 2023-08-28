@@ -23,6 +23,7 @@ const Solve = (props) => {
       setStart(null);
       setEnd(null);
       props.setSquares(initSudoku);
+      props.setUserInput(initSudoku);
       props.setSolved(false);
     }
   };
@@ -30,24 +31,8 @@ const Solve = (props) => {
   return (
     <>
       <div className={styles.solve}>
-        <button
-          id={styles.solvebtn}
-          disabled={props.solved || props.invalid}
-          onClick={() => {
-            handleClick("solve");
-          }}
-        >
-          Sudo Solve 🤠
-        </button>
-        <button
-          id={styles.resetbtn}
-          disabled={!props.solved}
-          onClick={() => {
-            handleClick("reset");
-          }}
-        >
-          Reset Board 🔄
-        </button>
+        {!props.solved && <button id={styles.solvebtn} disabled={props.invalid} onClick={() => { handleClick("solve") }}>Sudo Solve 🤠</button>}
+        {props.solved && <button id={styles.resetbtn} onClick={() => { handleClick("reset") }}>Reset Board 🔄</button>}
       </div>
       <Timer {...{ start, end }} />
     </>

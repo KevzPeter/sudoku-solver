@@ -3,10 +3,13 @@ import solveSudoku from "../lib/solveSudoku";
 import initSudoku from "../lib/initSudoku";
 import Timer from "./Timer";
 import { useState } from "react";
+import toast from 'react-hot-toast';
 
 const Solve = (props) => {
   const [start, setStart] = useState(null);
   const [end, setEnd] = useState(null);
+
+  const showSuccessToast = () => toast.success('Solved!', { position: 'top-right' });
 
   const handleClick = (choice) => {
     if (choice === "solve") {
@@ -14,6 +17,7 @@ const Solve = (props) => {
       let solvedSquares = solveSudoku(props.squares);
       props.setSquares(solvedSquares);
       props.setSolved(true);
+      showSuccessToast();
       setEnd(Math.floor(Date.now()));
     } else {
       setStart(null);
